@@ -1,0 +1,34 @@
+[phases.setup]
+nixPkgs = ["nodejs_18"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[start]
+cmd = "node index.js"
+```
+
+Commit and push those two files to your repo, then click **Redeploy** in Railway.
+
+---
+
+**Also check:** Make sure your files are in the root of the repo, not inside a subfolder. The structure should be:
+```
+your-repo/
+├── index.js          ← must be at root
+├── package.json
+├── railway.json
+├── nixpacks.toml
+└── lib/
+    ├── ai.js
+    ├── email.js
+    ├── shopify.js
+    └── knowledge-base.js
+```
+
+Not:
+```
+your-repo/
+└── mythic-ai-support/    ← wrong! no wrapper folder
+    ├── index.js
+    └── ...
